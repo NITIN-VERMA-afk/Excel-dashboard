@@ -4,12 +4,7 @@
   height: 100vh; 
 }
 
-.buttons-container {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  z-index: 1000; 
-}
+
 
 .side-panel {
   position: fixed;

@@ -40,7 +40,7 @@ function WorkbookDisplay() {
     console.log("No data available:", workbookData);
     return <div>No data available</div>;
   } else {
-    // Dynamically construct the data object based on workbookData
+   
     const data = {
       labels: workbookData.Sheet1.map((item) => item["Personal Budget"]),
       datasets: [
@@ -55,6 +55,7 @@ function WorkbookDisplay() {
     };
 
     const options = {};
+    
 
     return (
       <div>
