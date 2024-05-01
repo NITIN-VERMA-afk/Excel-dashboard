@@ -7,7 +7,10 @@ import { FaEye } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import DropdownButton from "./components/DropDownButton";
-import SalesDashboard from "./components/SalesDashboard";
+// import SalesDashboard from "./components/SalesDashboard";
+import MarketingDashboard from "./components/MarketingDashboard";
+import EmailMarketingData from "./components/EmailMarketingData"
+
 
 function App() {
   const [isPanelVisible, setIsPanelVisible] = useState(false);
@@ -36,7 +39,12 @@ function App() {
   return (
     <div className="container">
       {/* <WorkbookDisplay /> */}
-      <SalesDashboard />
+      <div className="">
+      <MarketingDashboard />
+     
+
+      </div>
+      
 
       <div className="fixed top-10 right-10 z-50 flex justify-between gap-2">
         <button onClick={() => setIframeHeight("50px")}>
@@ -47,8 +55,8 @@ function App() {
         </button>
 
         <p className="">
-          {" "}
-          <DropdownButton />{" "}
+          
+          <DropdownButton />
         </p>
 
         <button onClick={togglePanel}>

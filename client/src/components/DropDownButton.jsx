@@ -17,7 +17,7 @@ function DropdownButton() {
   return (
     <div className="relative">
       <button
-        className=" text-white px-4 py-2 rounded focus:outline-none focus:bg-blue-600"
+        className=" px-4 py-2 rounded focus:outline-none focus:bg-blue-600"
         onClick={toggleDropdown}
       >
         <FaArrowAltCircleDown />

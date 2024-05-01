@@ -76,9 +76,9 @@ app.get("/workbookToJson", (req, res) => {
 
 
 app.post("/updateMarketingCell", (req, res) => {
-  const { newValue } = req.body;
+  const { newMarketValue } = req.body;
   // console.log(newValue)
-  if (!newValue) {
+  if (!newMarketValue) {
     return res.status(400).send("No new value provided.");
   }
 
@@ -95,7 +95,7 @@ app.post("/updateMarketingCell", (req, res) => {
     if (!worksheet[cellRef]) {
       worksheet[cellRef] = {};
     }
-    worksheet[cellRef].v = newValue;
+    worksheet[cellRef].v = newMarketValue;
 
     xlsx.writeFile(workbook, "Updated_Marketing.xlsx");
     res.download("Updated_Marketing.xlsx", "Marketing.xlsx");
@@ -130,9 +130,9 @@ app.get("/MarketingworkbookToJson", (req, res) => {
 });
 
 app.post("/updateSalesData", (req, res) => {
-  const { newValue } = req.body;
+  const { newSalesValue } = req.body;
   // console.log(newValue)
-  if (!newValue) {
+  if (!newSalesValue) {
     return res.status(400).send("No new value provided.");
   }
 
@@ -149,7 +149,7 @@ app.post("/updateSalesData", (req, res) => {
     if (!worksheet[cellRef]) {
       worksheet[cellRef] = {};
     }
-    worksheet[cellRef].v = newValue;
+    worksheet[cellRef].v = newSalesValue;
 
     xlsx.writeFile(workbook, "Updated_Sales.xlsx");
     res.download("Updated_Sales.xlsx", "Sales.xlsx");
