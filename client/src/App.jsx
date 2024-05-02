@@ -7,9 +7,10 @@ import { FaEye } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import DropdownButton from "./components/DropDownButton";
-// import SalesDashboard from "./components/SalesDashboard";
+
 import MarketingDashboard from "./components/MarketingDashboard";
 import EmailMarketingData from "./components/EmailMarketingData"
+import SalesDashboard from "./components/SalesDashboard";
 
 
 function App() {
@@ -39,8 +40,9 @@ function App() {
   return (
     <div className="container">
       {/* <WorkbookDisplay /> */}
-      <div className="">
+      <div className={`dashboard-container ${isPanelVisible ? 'panel-open' : ''}`}>
       <MarketingDashboard />
+      <SalesDashboard/>
      
 
       </div>
@@ -65,7 +67,7 @@ function App() {
       </div>
       {isPanelVisible && (
         <div className="side-panel">
-          <div>
+          <div className="bg-black">
             <div className="mt-20">
               <ul className="flex flex-col justify-around">
                 <li className="flex items-center mb-2">
