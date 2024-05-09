@@ -72,61 +72,61 @@ function App() {
               <ul className="flex flex-col justify-around">
                 <li className="flex items-center mb-2">
                   <span className="w-20">Analysis</span>
-                  <input
+                  {/* <input
                     type="text"
                     className="flex-grow ml-2 border border-gray-300 rounded px-2 py-1"
-                  />
+                  /> */}
                 </li>
                 <li className="flex items-center mb-2">
                   <span className="w-20">Outliners</span>
-                  <input
+                  {/* <input
                     type="text"
                     className="flex-grow ml-2 border border-gray-300 rounded px-2 py-1"
-                  />
+                  /> */}
                 </li>
                 <li className="flex items-center mb-2">
                   <span className="w-20">Highlights</span>
-                  <input
+                  {/* <input
                     type="text"
                     className="flex-grow ml-2 border border-gray-300 rounded px-2 py-1"
-                  />
+                  /> */}
                 </li>
                 <li className="flex items-center mb-2">
                   <span className="w-20">RGY</span>
-                  <input
+                  {/* <input
                     type="text"
                     className="flex-grow ml-2 border border-gray-300 rounded px-2 py-1"
-                  />
+                  /> */}
                 </li>
                 <li className="flex items-center mb-2">
                   <span className="w-20">Actions</span>
-                  <input
+                  {/* <input
                     type="text"
                     className="flex-grow ml-2 border border-gray-300 rounded px-2 py-1"
-                  />
+                  /> */}
                 </li>
                 <li className="flex items-center mb-2">
                   <span className="w-20">Trends</span>
-                  <input
+                  {/* <input
                     type="text"
                     className="flex-grow ml-2 border border-gray-300 rounded px-2 py-1"
-                  />
+                  /> */}
                 </li>
                 <li className="flex items-center mb-2">
                   <span className="w-20">Interactions</span>
-                  <input
+                  {/* <input
                     type="text"
                     className="flex-grow ml-2 border border-gray-300 rounded px-2 py-1"
-                  />
+                  /> */}
                 </li>
                 <li className="flex items-center mb-2">
                   <span className="w-20">Projections</span>
-                  <input
+                  {/* <input
                     type="text"
                     value={newValue}
                     onChange={handleChange}
                     placeholder="Enter projections data"
-                  />
+                  /> */}
                 </li>
               </ul>
             </div>
