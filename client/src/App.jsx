@@ -39,7 +39,11 @@ function App() {
 
   return (
     <div className="container">
+<<<<<<< HEAD
        {/* <WorkbookDisplay />  */}
+=======
+      {/* <WorkbookDisplay /> */}
+>>>>>>> 2461f12191450fd8c29c66201b1d068b5c37bee7
       <div className={`dashboard-container ${isPanelVisible ? 'panel-open' : ''}`}>
       <MarketingDashboard />
       <SalesDashboard/>
@@ -72,6 +76,7 @@ function App() {
               <ul className="flex flex-col justify-around">
                 <li className="flex items-center mb-2">
                   <span className="w-20">Analysis</span>
+<<<<<<< HEAD
                   {/* <input
                     type="text"
                     className="flex-grow ml-2 border border-gray-300 rounded px-2 py-1"
@@ -122,11 +127,67 @@ function App() {
                 <li className="flex items-center mb-2">
                   <span className="w-20">Projections</span>
                   {/* <input
+=======
+                  <input
+                    type="text"
+                    className="flex-grow ml-2 border border-gray-300 rounded px-2 py-1"
+                  />
+                </li>
+                <li className="flex items-center mb-2">
+                  <span className="w-20">Outliners</span>
+                  <input
+                    type="text"
+                    className="flex-grow ml-2 border border-gray-300 rounded px-2 py-1"
+                  />
+                </li>
+                <li className="flex items-center mb-2">
+                  <span className="w-20">Highlights</span>
+                  <input
+                    type="text"
+                    className="flex-grow ml-2 border border-gray-300 rounded px-2 py-1"
+                  />
+                </li>
+                <li className="flex items-center mb-2">
+                  <span className="w-20">RGY</span>
+                  <input
+                    type="text"
+                    className="flex-grow ml-2 border border-gray-300 rounded px-2 py-1"
+                  />
+                </li>
+                <li className="flex items-center mb-2">
+                  <span className="w-20">Actions</span>
+                  <input
+                    type="text"
+                    className="flex-grow ml-2 border border-gray-300 rounded px-2 py-1"
+                  />
+                </li>
+                <li className="flex items-center mb-2">
+                  <span className="w-20">Trends</span>
+                  <input
+                    type="text"
+                    className="flex-grow ml-2 border border-gray-300 rounded px-2 py-1"
+                  />
+                </li>
+                <li className="flex items-center mb-2">
+                  <span className="w-20">Interactions</span>
+                  <input
+                    type="text"
+                    className="flex-grow ml-2 border border-gray-300 rounded px-2 py-1"
+                  />
+                </li>
+                <li className="flex items-center mb-2">
+                  <span className="w-20">Projections</span>
+                  <input
+>>>>>>> 2461f12191450fd8c29c66201b1d068b5c37bee7
                     type="text"
                     value={newValue}
                     onChange={handleChange}
                     placeholder="Enter projections data"
+<<<<<<< HEAD
                   /> */}
+=======
+                  />
+>>>>>>> 2461f12191450fd8c29c66201b1d068b5c37bee7
                 </li>
               </ul>
             </div>
