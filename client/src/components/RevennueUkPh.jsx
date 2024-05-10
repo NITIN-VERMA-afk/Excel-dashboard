@@ -20,63 +20,86 @@ ChartJS.register(
   Legend
 );
 
-const RevennueUkPk = () => {
-  const [hChartData, setHChartData] = useState({
-    labels: [],
-    datasets: []
-  });
+const RevenueUkPk = () => {
+  const [ukData, setUkData] = useState([]);
+  const [phData, setPhData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/SalesworkbookToJson');
-        
-        setHChartData({
-          labels: '', 
-       
-          datasets: [
-            {
-              label: 'Revenue', 
-              data: response.data.map(item => item.Hours), 
-              backgroundColor: 'black',
-            }
-          ]
-        });
+        const { data } = await axios.get('http://localhost:3000/SalesworkbookToJson');
+      
+        if (data && data.Data) {
+          const ukSales = data.Data.filter(item => item.Region === 'UK');
+          const phData = ukSales.map(item => ({ Date: item['Sale Date'], Revenue: item['Revenue Per Hour'] }));
+  
+          setUkData(ukSales);
+          setPhData(phData);
+          console.log('UK Data:', ukSales);
+          console.log('PH Data:', phData);
+        }
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
-
-    fetchData();
-  }, []);
   
+    fetchData();
+  }, []); 
 
   const options = {
     indexAxis: 'y', 
-    elements: {
-      bar: {
-        borderWidth: 2,
-      },
-    },
     responsive: true,
     plugins: {
       legend: {
         position: 'right',
       },
-      
+      title: {
+        display: true,
+        text: 'Revenue Comparison',
+      },
     },
   };
 
+  const ukChartData = {
+    labels: ukData.map(item => item.Date),
+    datasets: [{
+      label: 'UK Revenue',
+      data: ukData.map(item => item.Revenue),
+      backgroundColor: 'rgba(0, 123, 255, 0.5)',
+      borderColor: 'rgba(0, 123, 255, 1)',
+      borderWidth: 1,
+    }]
+  };
+
+  const phChartData = {
+    labels: phData.map(item => item.Date),
+    datasets: [{
+      label: 'PH Revenue Per Hour',
+      data: phData.map(item => item["Revenue Per Hour"]),
+      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      borderColor: 'rgba(255, 99, 132, 1)',
+      borderWidth: 1,
+    }]
+  };
+  
+
   return (
-    <div>
-      <div className='chart-container' style={{ maxWidth: '600px', margin: 'auto' }}>
-        <Bar data={hChartData} options={options} />
+    <div className="chart-container" style={{ maxWidth: '800px', margin: 'auto' }}>
+      <div>
+        <Bar data={ukChartData} options={options} />
+      </div>
+      <div>
+        <Bar data={phChartData} options={options} />
       </div>
     </div>
   );
 };
 
-export default RevennueUkPk;
+export default RevenueUkPk;
+
+
+
+
 
 
 

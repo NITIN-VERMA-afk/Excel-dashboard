@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2'; // Uncomment this line
-import { Chart, LineElement, CategoryScale, LinearScale, PointElement } from 'chart.js'; // Uncomment this line
+import { Chart, LineElement, CategoryScale, LinearScale, PointElement } from 'chart.js'; 
 import axios from 'axios';
 
 Chart.register(LineElement, CategoryScale, LinearScale, PointElement);

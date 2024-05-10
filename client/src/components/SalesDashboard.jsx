@@ -5,6 +5,8 @@ import Revenue from "./Revenue";
 import RevenueUkPh from "./RevennueUkPh";
 import CallsStatistics from "./Callsstatics";
 import FeedbackChart from "./Feedbackchart";
+import SalesDataUk from "./SalesDataUk";
+import TotalCallsuk from "./TotalCallsuk";
 
 const SalesDashboard = () => {
   return (
@@ -22,14 +24,17 @@ const SalesDashboard = () => {
 
       <div className="grid grid-cols-2 gap-4 p-4">
         <div>
-          <h1 className="text-white text-xl font-bold mb-2">
+          <h1 className="text-white text-xl font-bold mb-2 text-center">
             Revenue Statistics
           </h1>
           <Revenue />
         </div>
 
         <div>
-          <h1 className="text-white text-xl font-bold mb-2">UK & PK Revenue</h1>
+          <div className="flex justify-evenly">
+            <span>Revenue UK</span>
+            <span>Revenue pk</span>
+          </div>
           <RevenueUkPh />
         </div>
         <div>
@@ -42,6 +47,12 @@ const SalesDashboard = () => {
             <p> nagative positive</p>
           </div>
           <div> <FeedbackChart/></div>
+        </div>
+        <div>
+          <SalesDataUk/>
+        </div>
+        <div>
+          <TotalCallsuk/>
         </div>
       </div>
     </div>

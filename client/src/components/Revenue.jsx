@@ -8,7 +8,17 @@ const Revenue = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get("http://localhost:3000/SalesworkbookToJson");
-                setRevenueData(response.data.Data);  
+                if (response.data && response.data.Data) {
+                    const uniqueSalesmen = new Set();
+                    const filteredData = response.data.Data.filter(entry => {
+                        if (!uniqueSalesmen.has(entry.Salesman)) {
+                            uniqueSalesmen.add(entry.Salesman);
+                            return true;
+                        }
+                        return false;
+                    });
+                    setRevenueData(filteredData);
+                }
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
@@ -20,7 +30,7 @@ const Revenue = () => {
     return (
         <div>
             <table>
-                <thead>
+                <thead className='bg-blue-600'>
                     <tr>
                         <th>Salesman</th>
                         <th>Revenue</th>
@@ -32,7 +42,7 @@ const Revenue = () => {
                 <tbody>
                     {revenueData.length > 0 ? (
                         revenueData.map((data, index) => (
-                            <tr key={index}>
+                            <tr className='bg-blue-500' key={index}>
                                 <td>{data.Salesman}</td>
                                 <td>{data.Revenue}</td>
                                 <td>{data["Revenue Per Hour"]}</td>

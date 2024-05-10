@@ -10,7 +10,18 @@ const CallsStatistics = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get("http://localhost:3000/SalesworkbookToJson");
-                setCallData(response.data.Calcs);  
+                if (response.data && response.data.Calcs) {
+                    console.log(response.data.Calcs); // Log the data to check the structure
+                    const uniqueSalesmen = new Set();
+                    const filteredData = response.data.Calcs.filter(entry => {
+                        if (!uniqueSalesmen.has(entry.Salesman)) {
+                            uniqueSalesmen.add(entry.Salesman);
+                            return true;
+                        }
+                        return false;
+                    });
+                    setCallData(filteredData);
+                }
                 setIsLoading(false);
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -29,13 +40,13 @@ const CallsStatistics = () => {
     return (
         <div>
             <table>
-                <thead>
+                <thead className='bg-blue-600'>
                     <tr>
                         <th>Salesman</th>
                         <th>Calls</th>
                         <th>Positive</th>
                         <th>Negative</th>
-                        <th>All Feedback</th>
+                        <th>Client Satisfaction</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,12 +56,12 @@ const CallsStatistics = () => {
                         </tr>
                     ) : callData.length > 0 ? (
                         callData.map((data, index) => (
-                            <tr key={index}>
+                            <tr className='bg-blue-500' key={index}>
                                 <td>{data.Salesman}</td>
                                 <td>{data.Calls}</td>
                                 <td>{data["Positive Calls"]}</td>
                                 <td>{data["Negative Calls"]}</td>
-                                <td>{data.Revenue}</td>
+                                <td>{data.__EMPTY_1 || 'No satisfaction data'}</td>
                             </tr>
                         ))
                     ) : (
@@ -65,4 +76,6 @@ const CallsStatistics = () => {
 };
 
 export default CallsStatistics;
+
+
 

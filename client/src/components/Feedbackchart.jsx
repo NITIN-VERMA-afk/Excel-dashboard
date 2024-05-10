@@ -22,7 +22,6 @@ const FeedbackChart = () => {
       try {
         const response = await axios.get("http://localhost:3000/SalesworkbookToJson");
         setCallData(response.data.Data);
-        console.log(callData)
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -37,14 +36,25 @@ const FeedbackChart = () => {
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error loading the chart data!</p>;
 
+  // Create arrays to store positive and negative feedback counts for each salesman
+  const positiveFeedback = callData.map(item => item.Positive);
+  const negativeFeedback = callData.map(item => item.Negative);
+
   const data = {
     labels: callData.map(item => item.Salesman), 
     datasets: [
       {
-        label: "Sales Amount",
-        data: callData.map(item => item.Sales),
+        label: "Positive Feedback",
+        data: positiveFeedback,
         backgroundColor: "rgba(0, 123, 255, 0.5)",
         borderColor: "blue",
+        borderWidth: 1,
+      },
+      {
+        label: "Negative Feedback",
+        data: negativeFeedback,
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        borderColor: "red",
         borderWidth: 1,
       },
     ],
@@ -74,4 +84,5 @@ const FeedbackChart = () => {
 };
 
 export default FeedbackChart;
+
 

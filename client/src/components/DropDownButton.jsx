@@ -23,7 +23,7 @@ function DropdownButton() {
         <FaArrowAltCircleDown />
       </button>
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded shadow-md">
+        <div className="absolute top-full left-0 mt-2  bg-blue-500 border border-gray-200 rounded shadow-md">
           <button
             className="block w-full text-left px-4 py-2 "
             onClick={() => handleOptionClick("Option 1")}
